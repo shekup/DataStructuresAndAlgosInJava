@@ -12,7 +12,7 @@ public class Searching {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		try {
-			String[] lines = Files.readAllLines(new File("src/search/airports.dat").toPath()).toArray(new String[0]);
+			String[] lines = Files.readAllLines(new File("src/searchNsort/airports.dat").toPath()).toArray(new String[0]);
 			Airport[] airports = new Airport[lines.length];
 			for(int i=0; i<lines.length; i++) {
 				String line = lines[i].replaceAll("\"", "");
