@@ -126,7 +126,10 @@ public class Sorting {
 		}
 		return intArray;
 	}
-	
+
+	public static int[] mergeSort(int[] intArray){
+		return intArray;
+	}
 	static class Airport implements Comparable<Airport>{
 		private String city;
 		private String country;

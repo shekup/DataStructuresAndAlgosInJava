@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Searching {
@@ -24,6 +26,9 @@ public class Searching {
 				airports[i] = a;
 			}
 			System.out.println(findAirportCodeUsingLinearSearch("LHR", airports));
+
+			// Sort the array
+			Arrays.sort(airports);
 			System.out.println(findAirportCodeUsingBinarySearch("LHR", airports));
 			
 		} catch (IOException e) {
@@ -75,6 +80,18 @@ public class Searching {
 		}
 		return "";
 	}
+
+	/**
+	 * There are cases where the location of target data may be known in advance.
+	 * For example, in case of a telephone directory, if we want to search the telephone number of Morphius.
+	 * Here, linear search and even binary search will seem slow as we can directly jump to memory space where the names start from 'M' are stored.
+	 * @param toFind
+	 * @param airports
+	 * @return
+	 */
+	public static String findAirportCodeUsingInterpolationSearch(String toFind, Airport[] airports) {
+		return "";
+	}
 	
 	/**
 	 * There can be two ways to implement removing duplicates:
@@ -83,11 +100,11 @@ public class Searching {
 	 * @param airports
 	 * @return
 	 */
-	public static Airport[] renoveDuplicates(Airport[] airports) {
+	public static Airport[] removeDuplicates(Airport[] airports) {
 		return airports;
 	}
 	
-	static class Airport{
+	static class Airport implements Comparable<Airport>{
 		private String city;
 		private String country;
 		private String code3;
@@ -112,6 +129,9 @@ public class Searching {
 		}
 		public String toString() {
 			return this.city + "," + this.country + "," + this.code3;
+		}
+		public int compareTo(Airport other) {
+			return (this.getCode3().compareTo(other.getCode3()));
 		}
 	}
 
